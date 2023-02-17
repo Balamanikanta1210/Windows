@@ -13,6 +13,7 @@ steps:
   displayName: 'Run a one-line script'
 - task: UiPathInstallPlatform@3
   inputs:
+    cliVersion: 'WIN_21.10.8319.10920'
     cliNupkgPath: '$(Agent.ToolsDirectory)\nupkg\UiPath.CLI.Windows.22.10.8438.32859.nupkg'
 - task: UiPathPack@3
   inputs:
