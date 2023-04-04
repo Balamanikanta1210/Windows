@@ -14,22 +14,18 @@ steps:
   inputs:
     cliVersion: 'WIN_22.10.8438.32859'
     cliNupkgPath: '$(Agent.ToolsDirectory)\nupkg\UiPath.CLI.Windows.22.10.8438.32859.zip'
-#- task: UiPathPack@3
-#  inputs:
-#    versionType: 'AutoVersion'
-#    projectJsonPath: '$(Build.SourcesDirectory)'
-#    orchestratorConnection: 'Uipath_Testing'
-#    outputPath: '$(Build.ArtifactStagingDirectory)\Output'
-#- task: UiPathDeploy@3
-#  inputs:
-#    orchestratorConnection: 'Uipath_Testing'
-#    packagesPath: '$(Build.ArtifactStagingDirectory)\Output'
-#    folderName: 'Modren Example'
-#    entryPoints: 'Main.xaml'
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- task: UiPathPack@3
+  inputs:
+    versionType: 'AutoVersion'
+    projectJsonPath: '$(Build.SourcesDirectory)'
+    orchestratorConnection: 'Uipath_Testing'
+    outputPath: '$(Build.ArtifactStagingDirectory)\Output'
+- task: UiPathDeploy@3
+  inputs:
+    orchestratorConnection: 'Uipath_Testing'
+    packagesPath: '$(Build.ArtifactStagingDirectory)\Output'
+    folderName: 'Shared'
+    entryPoints: 'Main.xaml'
 - task: UiPathRunJob@3
   inputs:
     orchestratorConnection: 'Uipath_Testing'
