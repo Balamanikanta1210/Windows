@@ -26,10 +26,9 @@ steps:
     packagesPath: '$(Build.ArtifactStagingDirectory)\Output'
     folderName: 'Shared'
     entryPoints: 'Main.xaml'
-- task: UiPathRunJob@3
+- task: UiPathTest@3
   inputs:
+    testTarget: 'TestSet'
     orchestratorConnection: 'Uipath_Testing'
-    processName: 'windows_Blank'
+    testSet: 'Coverage_new'
     folderName: 'Modren Example'
-    user: 'uipath\balamanikanta.krishn'
-    machine: 'DESKTOP-DKPHE2O'
