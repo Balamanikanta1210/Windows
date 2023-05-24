@@ -24,11 +24,12 @@ steps:
   inputs:
     orchestratorConnection: 'Uipath_Testing'
     packagesPath: '$(Build.ArtifactStagingDirectory)\Output'
-    folderName: 'Shared'
+    folderName: 'FS & T'
     entryPoints: 'Main.xaml'
 - task: UiPathTest@3
   inputs:
     testTarget: 'TestSet'
     orchestratorConnection: 'Uipath_Testing'
-    testSet: 'Coverage_new'
+    testSet: 'Disable_Secure'
+    parametersFilePath: 'C:\Users\balamanikanta.krishn\Downloads\Parameters.json'
     folderName: 'Modren Example'
