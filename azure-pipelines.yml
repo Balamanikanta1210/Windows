@@ -20,6 +20,7 @@ steps:
     projectJsonPath: '$(Build.SourcesDirectory)'
     orchestratorConnection: 'Uipath_Testing'
     outputPath: '$(Build.ArtifactStagingDirectory)\Output'
+    runWorkflowAnalysis: true
 - task: UiPathDeploy@3
   inputs:
     orchestratorConnection: 'Uipath_Testing'
